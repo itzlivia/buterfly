@@ -1,0 +1,181 @@
+body {
+    margin: 0;
+    font-family: Great Vibes, Parisienne, Poppins;
+    background-image: url(../Imagens/ChatGPT\ Image\ 22\ de\ jun.\ de\ 2026\,\ 20_04_42.png);
+    color: #E86BA3;
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+      background-repeat: no-repeat;       /* Impede que a imagem se repita */
+    background-size: cover;             /* Força a imagem a cobrir a tela inteira sem distorcer */
+    background-position: center;        /* Centraliza a imagem na tela */
+}
+
+/* Classes para ocultar elementos */
+.hidden {
+     display: none !important;
+}
+
+/* Tela de Menu */
+.container-menu {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  
+}
+
+button {
+    padding: 15px 30px;
+    font-size: 18px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    color: rgb(255, 255, 255);
+    transition: 0.2s;
+    background-color: #F8C7D8;
+}
+
+button:hover {
+    background-color: #E86BA3;
+}
+
+/* Tela da Cabine */
+.container-cabine {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.duas-cameras {
+    position: relative;
+    width: 640px;
+    height: 480px;
+    background: #000;
+    border: 4px solid #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex; /* Alinha os vídeos lado a lado */
+    object-fit: cover;
+}
+
+/* Faz cada vídeo ocupar exatamente metade da largura */
+.duas-cameras video {
+    width: 50%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+/* Canvas da foto cobrindo a estrutura */
+canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: none;
+    z-index: 2;
+}
+
+
+
+.controles {
+    display: flex;
+    gap: 15px;
+}
+
+video, canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Canvas começa escondido, só aparece quando tira a foto */
+canvas {
+    display: none;
+}
+
+.controles {
+    display: flex;
+    gap: 15px;
+}
+
+/* Configuração da nova imagem do menu */
+.imagem-cabine {
+    width: 150px; /* Ajuste a largura como preferir */
+    height: auto; /* Mantém a proporção da imagem */
+    margin: 20px auto;  /* Cria espaço em cima e embaixo */
+    display: block;  /* Garante que ela fique em uma linha própria */
+ 
+}
+
+/* Animação que faz a imagem subir e descer suavemente */
+@keyframes flutuar {
+    0% {transform:  translateY(0px); }
+    50% {transform: translateY(-12px); }  /* Sobe suavemente */
+    100% {transform:  translateY(0px); }  /* Volta à posição inicial */
+}
+
+/* Estilo e efeitos da cabine */
+.cabine-animada {
+    width: 500px !important;  /* Mantém o tamanho controlado */
+    height: auto !important;
+    display: block !important;
+    margin: 20px auto;
+
+      /* Aplica a animação: dura 4 segundos, é suave (ease-in-out) e infinita */
+      animation: flutuar 4s  ease-in-out infinite;
+
+       /* Brilho rosa mágico ao redor do desenho da imagem */
+       filter: drop-shadow(0 0 8px rgba(232, 107, 163, 0.5));
+
+       /* Transição suave para quando o mouse passar por cima */
+       transition: filter 0.3s ease;
+}
+
+/* Quando o usuário passa o mouse por cima */
+.cabine-animada:hover {
+    filter: drop-shadow(0 0 18px rgba(232, 107, 163, 0.9)); /* O brilho se intensifica */
+}
+
+/* Container que vai abrigar as borboletas voando */
+.container-borboletas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    pointer-events: none;  /* Garante que as borboletas não atrapalhem os cliques nos botões */
+    z-index: 9999; /* Fica atrás dos botões, mas visível na tela */
+}
+
+/* Estilo individual de cada borboleta */
+.borboleta-voadora {
+    position: absolute;
+    bottom: -50px;   /* Começa um pouco abaixo da tela */
+    line-height: 1; /* Garante que o emoji não seja cortado verticalmente */
+    user-select: none;
+    pointer-events: none;
+    /* Aplica duas animações: uma para subir e outra para balançar para os lados */
+    animation: subir linear forwards, balancar ease-in-out infinite;
+}
+
+/* Animação para subir até o topo da tela */
+@keyframes subir {
+    0% { bottom: -50px; }
+    100% { bottom: 110vh; }
+}
+
+/* Animação para balançar de um lado para o outro enquanto sobe */
+@keyframes balancar {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(30px); }
+}

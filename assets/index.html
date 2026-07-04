@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/style.css">
+    <title>Cabine de Fotos</title>
+</head>
+     
+<body>
+    <!--Tela 1: Menu Inicial -->
+    <div id="tela-menu" class="container-menu">
+        <h1>Buterfly Photograp</h1>
+
+        <!--Imagem Cabine de Bosrboleta-->
+        <img src="../Imagens/ChatGPT Image 28 de jun. de 2026, 15_39_15.png" alt="Imagem de uma Cabine de Ftotos com Borboletas" class="cabine-animada">
+
+        <button id="btn-entrar">🦋Voar para a Cabine</button>
+    </div>
+
+    <!-- TELA 2: CABINE DE FOTOS (FICA OCULTA NO INÍCIO) -->
+     <div id="tela-cabine" class="container-cabine hidden">
+
+         <!-- CORRIGIDO: O container agora fica solto na tela toda, fora da caixa das câmeras -->
+           <div id="container-borboletas" class="container-borboletas"></div>
+           
+        <div class="duas-cameras">
+
+             <!-- NOVO: Container para gerar as borboletas voando -->
+              <div id="container-borboletas" class="container-borboletas"></div>
+
+            <!-- Espelho da WEbCam -->
+             <video id="video" autoplay playsinline></video>
+             <video id="video2" autoplay playsinline></video>
+
+             <!-- Canvas Onde a Foto Tirada vai Aparecer -->
+              <canvas id="canvas"></canvas>
+
+
+        </div>
+
+        <div class="controles">
+            <button id="btn-capturar">🦋Click</button>
+            <button id="btn-salvar" class="hidden">🦋Baixar Foto</button>
+            <button id="btn-voltar">🦋Voltar</button>
+        </div>
+     </div>
+
+     <script src="../assets/script.js"></script>
+</body>
+</html>
